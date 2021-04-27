@@ -4,13 +4,13 @@ import * as React from 'react'
 
 type SetState<S> = (value: S | ((state: S) => S)) => void
 
-type UseCallback = <T: (...args: any[]) => any>(callback: T, deps: any[]) => T
+type UseCallback = <T extends (...args: any[]) => any>(callback: T, deps: any[]) => T
 
 type UseContext = <T>(context: React.Context<T>) => T
 
 type UseDebugValue = <T>(value: T, format?: (value: T) => any) => void
 
-type UseEffect = (effect: () => void | (() => void), deps?: any[]) => void
+type UseEffect = (effect: () => undefined | (() => void), deps?: any[]) => void
 
 type UseImperativeHandle = (ref: any, init: () => any, deps?: any[]) => void
 
@@ -33,7 +33,7 @@ type UseReducer = {
 
 type UseRef = {
   // Component ref:
-  <ElementType: React$ElementType>(): {
+  <ElementType extends React$ElementType>(): {
     current: null | React$ElementRef<ElementType>
   },
 

@@ -6,11 +6,9 @@ import { type TextFieldProps, TextField } from 'react-native-material-textfield'
 import { fixSides, mapSides, sidesToMargin } from '../../util/sides.js'
 import { type ThemeProps, withTheme } from '../services/ThemeContext.js'
 
-type Props = {|
-  ...TextFieldProps,
-  ...ThemeProps,
-  marginRem?: number | number[]
-|}
+interface Props extends TextFieldProps, ThemeProps {
+  marginRem?: number | number[];
+}
 
 class ThemedTextFieldComponent extends React.PureComponent<Props> {
   render() {
