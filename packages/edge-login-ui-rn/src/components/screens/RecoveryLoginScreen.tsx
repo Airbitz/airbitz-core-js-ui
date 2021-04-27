@@ -238,7 +238,7 @@ const styles = {
     textAlign: 'center',
     paddingBottom: 5
   }
-}
+} as const
 
 export const RecoveryLoginScreen = connect<StateProps, DispatchProps, OwnProps>(
   (state: RootState) => ({

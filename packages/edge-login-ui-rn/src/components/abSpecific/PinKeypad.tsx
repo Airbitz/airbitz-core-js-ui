@@ -181,4 +181,4 @@ const styles = {
     fontSize: scale(30),
     color: Constants.ACCENT_MINT
   }
-}
+} as const

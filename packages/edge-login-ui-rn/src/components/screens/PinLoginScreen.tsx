@@ -427,7 +427,7 @@ const styles = {
     marginTop: scale(8),
     color: Constants.ACCENT_MINT
   }
-}
+} as const
 
 export const PinLoginScreen = connect<StateProps, DispatchProps, OwnProps>(
   (state: RootState) => ({

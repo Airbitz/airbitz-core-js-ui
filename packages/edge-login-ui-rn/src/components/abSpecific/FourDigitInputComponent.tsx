@@ -152,7 +152,7 @@ const styles = {
     height: scale(30),
     width: scale(30)
   }
-}
+} as const
 
 export const FourDigitInput = connect<StateProps, DispatchProps, OwnProps>(
   (state: RootState) => ({

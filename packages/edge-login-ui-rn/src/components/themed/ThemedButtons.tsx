@@ -133,13 +133,13 @@ const getStyles = cacheStyles((theme: Theme) => {
     flexDirection: 'row',
     justifyContent: 'center',
     minWidth: theme.rem(9)
-  }
+  } as const
   const commonText = {
     fontFamily: theme.fontFaceDefault,
     fontSize: theme.rem(1),
     lineHeight: theme.rem(2),
     marginHorizontal: theme.rem(0.5)
-  }
+  } as const
 
   return {
     primaryButton: {

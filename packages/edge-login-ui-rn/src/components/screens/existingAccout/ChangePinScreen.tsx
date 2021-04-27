@@ -141,7 +141,7 @@ const styles = {
     downTextStyle: Styles.PrimaryButtonUpTextScaledStyle,
     downStyle: Styles.PrimaryButtonDownScaledStyle
   }
-}
+} as const
 
 export const PublicChangePinScreen = connect<
   StateProps,

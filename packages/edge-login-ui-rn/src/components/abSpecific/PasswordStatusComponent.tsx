@@ -129,7 +129,7 @@ const styles = {
     marginBottom: scale(6),
     fontSize: scale(12)
   }
-}
+} as const
 
 export const PasswordStatus = connect<StateProps, {}, OwnProps>(
   (state: RootState) => ({

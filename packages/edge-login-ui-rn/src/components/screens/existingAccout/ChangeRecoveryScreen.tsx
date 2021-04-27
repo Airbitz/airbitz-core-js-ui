@@ -491,7 +491,7 @@ const styles = {
     borderColor: Colors.GRAY_3,
     borderWidth: 1
   }
-}
+} as const
 
 export const PublicChangeRecoveryScreen = connect<
   StateProps,

@@ -201,7 +201,7 @@ const styles = {
     ...Styles.MaterialInputOnWhiteScaled,
     marginTop: scale(15)
   }
-}
+} as const
 
 export const PublicChangePasswordScreen = connect<
   StateProps,

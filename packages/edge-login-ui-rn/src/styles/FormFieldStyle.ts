@@ -23,7 +23,7 @@ export const MaterialInputOnWhite = {
     color: Constants.PRIMARY,
     fontFamily: Constants.FONTS.fontFamilyRegular
   }
-}
+} as const
 
 export const MaterialInputOnWhiteScaled = {
   container: {
@@ -44,4 +44,4 @@ export const MaterialInputOnWhiteScaled = {
     color: Constants.PRIMARY,
     fontFamily: Constants.FONTS.fontFamilyRegular
   }
-}
+} as const
