@@ -5,6 +5,7 @@ const { AbcCoreJsUi } = NativeModules
 
 // TODO: Remove this hack! Pass via io object in Core
 if (Platform.OS === 'android' && AbcCoreJsUi.fetch) {
+  // @ts-expect-error
   global.androidFetch = async (url: string, options: EdgeFetchOptions) => {
     const { method, body, headers = {} } = options
 

@@ -95,6 +95,7 @@ class QrCodeModalComponent extends React.Component<Props, State> {
     const out: EdgePendingEdgeLogin = await context.requestEdgeLogin({
       ...accountOptions,
       // These are no longer used in recent core versions:
+      // @ts-expect-error
       displayImageUrl:
         'https://github.com/Airbitz/edge-brand-guide/blob/master/Logo/Mark/Edge-Final-Logo_Mark-Green.png',
       displayName: 'Edge Wallet'

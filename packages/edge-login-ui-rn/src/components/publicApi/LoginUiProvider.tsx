@@ -17,7 +17,7 @@ interface Props {
  * In the future, this will be our injection point for branding &
  * theme customizations.
  */
-export function LoginUiProvider(props: Props): React.ReactNode {
+export function LoginUiProvider(props: Props): JSX.Element {
   return (
     <loginUiContext.Provider value>
       <Airship>{props.children}</Airship>
@@ -26,8 +26,8 @@ export function LoginUiProvider(props: Props): React.ReactNode {
 }
 
 export function MaybeProvideLoginUi(props: {
-  children: React.ReactNode
-}): React.ReactNode {
+  children: JSX.Element
+}): JSX.Element {
   const { children } = props
   const hasProvider = useContext(loginUiContext)
 

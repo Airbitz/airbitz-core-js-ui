@@ -22,6 +22,7 @@ class PermissionsAlertModalComponent extends React.PureComponent<Props> {
 
     // Since we can't add native dependencies without a major version bump,
     // we rely on the GUI to sneak this one to us:
+    // @ts-expect-error
     const { ReactNativeBlurView } = global
     const underlay =
       typeof ReactNativeBlurView === 'function' ? (
