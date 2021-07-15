@@ -20,14 +20,6 @@ import Animated, {
 } from 'react-native-reanimated'
 import AntDesignIcon from 'react-native-vector-icons/AntDesign'
 
-import {
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState
-} from '../../util/hooks'
 import { fixSides, mapSides, sidesToMargin } from '../../util/sides'
 import { Theme, useTheme } from '../services/ThemeContext'
 
@@ -167,10 +159,10 @@ const EdgeTextFieldOutlinedComponent = React.forwardRef((props: Props, ref) => {
     ...inputProps
   } = props
 
-  const [containerHeight, setContainerHeight] = useState(0)
+  const [containerHeight, setContainerHeight] = React.useState(0)
 
   // animation
-  const inputRef = useRef<TextInput>(null)
+  const inputRef = React.useRef<TextInput>(null)
   const placeholderMap = useSharedValue(
     value ? ANIMATION_STATES.FOCUSED : ANIMATION_STATES.INIT
   )
@@ -212,7 +204,9 @@ const EdgeTextFieldOutlinedComponent = React.forwardRef((props: Props, ref) => {
     hintLeftMargin
   } = getSizeStyles(theme, size, showSearchIcon)
 
-  const errorState = useCallback(() => error != null && error !== '', [error])
+  const errorState = React.useCallback(() => error != null && error !== '', [
+    error
+  ])
 
   const handleFocus = () => {
     placeholderMap.value = withTiming(ANIMATION_STATES.FOCUSED)
@@ -237,7 +231,7 @@ const EdgeTextFieldOutlinedComponent = React.forwardRef((props: Props, ref) => {
     if (onClear != null) onClear()
   }
 
-  const handlePlaceholderLayout = useCallback(
+  const handlePlaceholderLayout = React.useCallback(
     ({ nativeEvent }) => {
       const { width } = nativeEvent.layout
       placeholderSize.value = width
@@ -252,7 +246,7 @@ const EdgeTextFieldOutlinedComponent = React.forwardRef((props: Props, ref) => {
   }
 
   // error handling
-  useEffect(() => {
+  React.useEffect(() => {
     if (errorState()) {
       colorMap.value = ANIMATION_STATES.ERROR
     } else {
@@ -333,14 +327,14 @@ const EdgeTextFieldOutlinedComponent = React.forwardRef((props: Props, ref) => {
     }
   })
 
-  useImperativeHandle(ref, () => ({
+  React.useImperativeHandle(ref, () => ({
     focus: handleFocus,
     blur: handleBlur,
     isFocused: isFocused(),
     clear: clear
   }))
 
-  const placeholderStyle = useMemo(() => {
+  const placeholderStyle = React.useMemo(() => {
     return [...placeholderPaddingStyles, animatedPlaceholderStyles]
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...placeholderPaddingStyles, animatedPlaceholderStyles])

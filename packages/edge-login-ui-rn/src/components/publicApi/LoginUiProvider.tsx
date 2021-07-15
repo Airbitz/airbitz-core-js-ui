@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import { useContext } from '../../util/hooks'
 import { Airship } from '../services/AirshipInstance'
 
 /**
@@ -29,7 +28,7 @@ export function MaybeProvideLoginUi(props: {
   children: JSX.Element
 }): JSX.Element {
   const { children } = props
-  const hasProvider = useContext(loginUiContext)
+  const hasProvider = React.useContext(loginUiContext)
 
   return hasProvider ? children : <LoginUiProvider>{children}</LoginUiProvider>
 }

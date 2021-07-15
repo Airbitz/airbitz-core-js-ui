@@ -7,7 +7,6 @@ import s from '../../../common/locales/strings'
 import { useScrollToEnd } from '../../../hooks/useScrollToEnd'
 import { Dispatch, RootState } from '../../../types/ReduxTypes'
 import { logEvent } from '../../../util/analytics'
-import { useState } from '../../../util/hooks'
 import { connect } from '../../services/ReduxStore'
 import { Theme, ThemeProps, withTheme } from '../../services/ThemeContext'
 import { AccountInfo } from '../../themed/AccountInfo'
@@ -30,7 +29,7 @@ type Props = OwnProps & DispatchProps & ThemeProps
 const NewAccountReviewScreenComponent = ({ onDone, theme }: Props) => {
   const styles = getStyles(theme)
 
-  const [showNext, setShowNext] = useState(false)
+  const [showNext, setShowNext] = React.useState(false)
   const scrollViewRef = useScrollToEnd(showNext)
 
   const handleNext = () => {

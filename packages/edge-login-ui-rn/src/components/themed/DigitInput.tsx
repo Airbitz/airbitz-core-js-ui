@@ -4,7 +4,6 @@ import { cacheStyles } from 'react-native-patina'
 
 import { validatePin } from '../../actions/CreateAccountActions'
 import { Dispatch, RootState } from '../../types/ReduxTypes'
-import { useRef } from '../../util/hooks'
 import { fixSides, mapSides, sidesToMargin } from '../../util/sides'
 import { connect } from '../services/ReduxStore'
 import { Theme, ThemeProps, withTheme } from '../services/ThemeContext'
@@ -34,7 +33,7 @@ const DigitInputComponent = ({
   theme,
   onChangeText
 }: Props) => {
-  const inputRef = useRef<TextInput | null>(null)
+  const inputRef = React.useRef<TextInput | null>(null)
   const spacings = sidesToMargin(mapSides(fixSides(marginRem, 0.5), theme.rem))
   const styles = getStyles(theme)
 

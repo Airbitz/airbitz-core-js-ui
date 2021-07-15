@@ -15,7 +15,6 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 import s from '../../common/locales/strings'
 import { RootState } from '../../types/ReduxTypes'
-import { useState } from '../../util/hooks'
 import { fixSides, mapSides, sidesToMargin } from '../../util/sides'
 import { connect } from '../services/ReduxStore'
 import { Theme, ThemeProps, withTheme } from '../services/ThemeContext'
@@ -44,7 +43,7 @@ const AccountInfoComponent = ({
 }: Props) => {
   const styles = getStyles(theme)
   const spacings = sidesToMargin(mapSides(fixSides(marginRem, 0.5), theme.rem))
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = React.useState(false)
 
   const animatedRef = useAnimatedRef<View>()
   const expanded = useSharedValue(false)

@@ -6,8 +6,6 @@ import Animated, {
   withTiming
 } from 'react-native-reanimated'
 
-import { useEffect, useState } from '../../util/hooks'
-
 interface Props {
   children: React.ReactNode
 
@@ -31,8 +29,8 @@ const FadeComponent = (props: Props) => {
   }))
 
   // Animate the opacity & child lifecycle based on the visibility toggle:
-  const [mounted, setMounted] = useState<boolean>(visible)
-  useEffect(() => {
+  const [mounted, setMounted] = React.useState<boolean>(visible)
+  React.useEffect(() => {
     if (visible) {
       setMounted(true)
       opacity.value = withTiming(1, { duration })

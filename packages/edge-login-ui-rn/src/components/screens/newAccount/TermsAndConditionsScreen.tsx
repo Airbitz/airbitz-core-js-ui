@@ -12,7 +12,6 @@ import { useScrollToEnd } from '../../../hooks/useScrollToEnd'
 import { Branding } from '../../../types/Branding'
 import { Dispatch, RootState } from '../../../types/ReduxTypes'
 import { logEvent } from '../../../util/analytics'
-import { useState } from '../../../util/hooks'
 import { connect } from '../../services/ReduxStore'
 import { Theme, ThemeProps, withTheme } from '../../services/ThemeContext'
 import { BackButton } from '../../themed/BackButton'
@@ -54,7 +53,7 @@ const TermsAndConditionsScreenComponent = ({
   theme
 }: Props) => {
   const styles = getStyles(theme)
-  const [termValues, setTermValues] = useState<boolean[]>([
+  const [termValues, setTermValues] = React.useState<boolean[]>([
     false,
     false,
     false,

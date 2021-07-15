@@ -9,7 +9,6 @@ import {
 import s from '../../../common/locales/strings'
 import { Dispatch, RootState } from '../../../types/ReduxTypes'
 import { logEvent } from '../../../util/analytics'
-import { useState } from '../../../util/hooks'
 import { connect } from '../../services/ReduxStore'
 import { Theme, ThemeProps, withTheme } from '../../services/ThemeContext'
 import { BackButton } from '../../themed/BackButton'
@@ -53,8 +52,8 @@ const NewAccountPasswordScreenComponent = ({
   theme
 }: Props) => {
   const styles = getStyles(theme)
-  const [focusFirst, setFocusFirst] = useState<boolean>(true)
-  const [focusSecond, setFocusSecond] = useState<boolean>(false)
+  const [focusFirst, setFocusFirst] = React.useState<boolean>(true)
+  const [focusSecond, setFocusSecond] = React.useState<boolean>(false)
 
   const handleFocusSwitch = () => {
     setFocusFirst(false)
