@@ -183,7 +183,7 @@ export default {
   try_again: 'Try Again',
   otp_reset_modal_header: 'Secure Your Account',
   otp_reset_modal_message:
-    'Two factor authentication (2FA) prevents unauthorized access from other devices, even if your username and password is compromised. You can scan a QR code or in an authentication code to seamlessly authorize other devices. Would you like to enable 2FA?',
+    'Two factor authentication (2FA) prevents unauthorized access from other devices, even if your username and password is compromised. You can scan a QR code or type in an authentication code to seamlessly authorize other devices. Would you like to enable 2FA?',
   otp_reset_modal_dont_ask: "Don't ask again",
   otp_authentication_header: '2FA has been enabled',
   otp_authentication_message:
