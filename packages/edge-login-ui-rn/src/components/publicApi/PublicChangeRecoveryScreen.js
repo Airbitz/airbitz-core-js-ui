@@ -11,11 +11,12 @@ type Props = {
   account: EdgeAccount,
   context: EdgeContext,
   showHeader?: boolean,
-  onComplete(): void
+  onComplete(): void,
+  onChangeRecoveryModal?: (status: boolean) => void
 }
 
 export function PasswordRecoveryScreen(props: Props): React.Node {
-  const { account, context, onComplete, showHeader = false } = props
+  const { account, context, onComplete, showHeader = false, onChangeRecoveryModal } = props
 
   return (
     <ReduxStore
@@ -26,7 +27,7 @@ export function PasswordRecoveryScreen(props: Props): React.Node {
       }}
       initialAction={initializeChangeRecovery(account)}
     >
-      <Router branding={{}} showHeader={showHeader} />
+      <Router branding={{}} showHeader={showHeader} onChangeRecoveryModal={onChangeRecoveryModal} />
     </ReduxStore>
   )
 }

@@ -29,7 +29,8 @@ import { connect } from '../../services/ReduxStore.js'
 import { MessageText, Strong } from '../../themed/ThemedText.js'
 
 type OwnProps = {
-  showHeader: boolean
+  showHeader: boolean,
+  onChangeRecoveryModal?: (status: boolean) => void
 }
 type StateProps = {
   account: EdgeAccount,
@@ -88,6 +89,13 @@ class ChangeRecoveryScreenComponent extends React.Component<Props, State> {
 
   handleDisable = () => {
     this.disableRecovery().catch(showError)
+  }
+
+  onChangeRecoveryModalHandler = (status: boolean) => {
+    const { onChangeRecoveryModal } = this.props
+    if (onChangeRecoveryModal) {
+      onChangeRecoveryModal(status)
+    }
   }
 
   handleSubmit = () => {
@@ -169,22 +177,25 @@ class ChangeRecoveryScreenComponent extends React.Component<Props, State> {
     if (Platform.OS === 'android') delete buttons.email
 
     // Ask which way to send the key:
-    await Airship.show(bridge => (
-      <ButtonsModal
-        bridge={bridge}
-        title={s.strings.confirm_recovery_questions}
-        buttons={buttons}
-      >
-        <MessageText>{this.state.question1}</MessageText>
-        <MessageText>
-          <Strong>{this.state.answer1}</Strong>
-        </MessageText>
-        <MessageText>{this.state.question2}</MessageText>
-        <MessageText>
-          <Strong>{this.state.answer2}</Strong>
-        </MessageText>
-      </ButtonsModal>
-    ))
+    await Airship.show(bridge => {
+      this.onChangeRecoveryModalHandler(true)
+      return (
+        <ButtonsModal
+          bridge={bridge}
+          title={s.strings.confirm_recovery_questions}
+          buttons={buttons}
+        >
+          <MessageText>{this.state.question1}</MessageText>
+          <MessageText>
+            <Strong>{this.state.answer1}</Strong>
+          </MessageText>
+          <MessageText>{this.state.question2}</MessageText>
+          <MessageText>
+            <Strong>{this.state.answer2}</Strong>
+          </MessageText>
+        </ButtonsModal>
+      )
+    }).then(() => this.onChangeRecoveryModalHandler(false))
   }
 
   handleEnableEmail = async (): Promise<boolean> => {
