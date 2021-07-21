@@ -52,6 +52,8 @@
   },
   "devDependencies": {
     "@react-native-community/art": "^1.0.2",
+    "@types/react-native": "^0.64.4",
+    "@types/sprintf-js": "^1.1.2",
     "edge-core-js": "^0.17.28",
     "flow-bin": "^0.84.0"
   },

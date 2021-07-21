@@ -4,3 +4,4 @@
 /packages/*/dist/
 /packages/*/lib/
 /packages/*/node_modules/
+/packages/edge-login-ui-rn/lib/
